@@ -1,19 +1,17 @@
 import { getDomElementAsync } from 'src/helpers/dom';
 import { insertTextAtCursor } from 'src/helpers/keyboard';
 import { watchLocalStorageValueAndCall } from 'src/helpers/local-storage';
-import { HIDE_Q_A_BUTTON_SETTING, DISABLE_AI_ON_SPACE_PRESS_SETTING } from 'src/constants/strings';
+import { HIDE_ASK_AI_BUTTON_SETTING, DISABLE_AI_ON_SPACE_PRESS_SETTING } from 'src/constants/strings';
 
-const grandGrandGrandParent = (element: Element) => element?.parentElement?.parentElement?.parentElement?.parentElement;
-
-export const toggleHideNotionQandAButton = async (shouldHideQandAButton: boolean) => {
-	// 1. get button's svg icon
-	const targeSvgIcon  = await getDomElementAsync('svg.sparkles[role="graphics-symbol"]');
-	if (!targeSvgIcon) return;
+export const toggleHideNotionQandAButton = async (shouldHideAskAIButton: boolean) => {
+	// 1. get ask AI button element
+	const aiButton  = await getDomElementAsync('div[role="button"].notion-ai-button');
+	if (!aiButton) return;
 	// 2. get button root element
-	const targetAncestor = grandGrandGrandParent(targeSvgIcon);
-	if (!targetAncestor) return;
-	// 3. hide it
-	targetAncestor.style.display = shouldHideQandAButton ? 'none' : 'block';
+	const aiButtonContainer = aiButton?.parentElement;
+	if (!aiButtonContainer) return;
+	// 2. hide it
+	aiButtonContainer.style.display = shouldHideAskAIButton ? 'none' : 'block';
 };
 
 // let spacePressEventListener;
@@ -65,7 +63,7 @@ const toggleDisableAIOnSpacePress = (shouldDisableAIonSpacePress?: boolean) => {
 };
 
 // hide Q&A button
-watchLocalStorageValueAndCall<boolean>(HIDE_Q_A_BUTTON_SETTING, toggleHideNotionQandAButton);
+watchLocalStorageValueAndCall<boolean>(HIDE_ASK_AI_BUTTON_SETTING, toggleHideNotionQandAButton);
 
 // disable AI popup when pressing spacebar at beginning of line
 watchLocalStorageValueAndCall<boolean>(DISABLE_AI_ON_SPACE_PRESS_SETTING, toggleDisableAIOnSpacePress);

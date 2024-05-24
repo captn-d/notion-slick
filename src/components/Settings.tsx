@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createUseStyles } from 'react-jss';
-import { ENABLE_TOC_SETTING, HIDE_Q_A_BUTTON_SETTING, DISABLE_AI_ON_SPACE_PRESS_SETTING } from 'src/constants/strings';
+import { ENABLE_TOC_SETTING, HIDE_ASK_AI_BUTTON_SETTING, DISABLE_AI_ON_SPACE_PRESS_SETTING } from 'src/constants/strings';
 import FlagSetting from 'src/components/FlagSetting';
 // import type { FC } from 'react';
 
@@ -36,7 +36,7 @@ const Settings = () => {
 	return (
 		<div className={classes.settings}>
 			<FlagSetting name="Enable table of Contents" _key={ENABLE_TOC_SETTING} defaultValue={true} />
-			<FlagSetting name="Hide Q&A button" _key={HIDE_Q_A_BUTTON_SETTING} defaultValue={true} />
+			<FlagSetting name="Hide Ask AI button" _key={HIDE_ASK_AI_BUTTON_SETTING} defaultValue={true} />
 			<FlagSetting name="Disable AI popup on space press" _key={DISABLE_AI_ON_SPACE_PRESS_SETTING} defaultValue={true} />
 			<hr/>
 			<p className={classes.version}>Version: {version}</p>
