@@ -47,6 +47,6 @@ export default defineManifest(async () => ({
 		default_popup: 'src/popup.html',
 		default_title: '__MSG_extensionName__ settings',
 	},
-	permissions: [ 'webNavigation', 'storage', 'tabs' ],
+	permissions: [ 'webNavigation', 'storage'],
 	update_url: 'https://clients2.google.com/service/update2/crx',
 }));
