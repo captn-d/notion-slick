@@ -25,7 +25,7 @@ export default defineManifest(async () => ({
 	content_scripts: [{
 		js: [
 			'src/toc.tsx', // table of contents
-			'src/disable-ai.ts', // disable Q&A and AI on space press
+			'src/disable-ai.ts', // disable AI button and AI on space press
 		],
 		matches: [ '*://*.notion.so/*' ],
 	}],

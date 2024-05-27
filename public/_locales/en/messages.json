@@ -1,6 +1,6 @@
 {
 	"extensionDescription": {
-		 "message": "Adds a table of contents in the sidebar, removes the Q&A button for a cleaner interface, disables the AI popup on space press."
+		 "message": "Adds a table of contents in the sidebar, removes the AI button for a cleaner interface, disables the AI popup on space press."
 	},
 	"extensionName": {
 	 "message": "Notion Slick"
